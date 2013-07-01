@@ -1,0 +1,18 @@
+--- a/arch/arm/mach-omap2/board-omap3beagle.c
++++ b/arch/arm/mach-omap2/board-omap3beagle.c
+@@ -795,15 +795,7 @@
+ 
+ static struct regulator *reg_1v8, *reg_2v8;
+ 
+-static int beagle_cam_set_xclk(struct v4l2_subdev *subdev, int hz)
+-{
+-	struct isp_device *isp = v4l2_dev_to_isp_device(subdev->v4l2_dev);
+-
+-	return isp->platform_cb.set_xclk(isp, hz, MT9P031_XCLK);
+-}
+-
+ static struct mt9p031_platform_data beagle_mt9p031_platform_data = {
+-	.set_xclk	= beagle_cam_set_xclk,
+ 	.reset		= MT9P031_RESET_GPIO,
+ 	.ext_freq	= MT9P031_EXT_FREQ,
+ 	.target_freq	= MT9P031_TARGET_FREQ,
